@@ -22,13 +22,22 @@ const messagesMap: Record<string, Record<string, string>> = {
 };
 
 const ScrollToTop = () => {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
 
   useEffect(() => {
-    if (!window.location.hash) {
+    if (hash) {
+      const targetId = hash.substring(1);
+      const element = document.getElementById(targetId);
+      if (element) {
+        const timer = setTimeout(() => {
+          element.scrollIntoView({ behavior: "smooth" });
+        }, 100);
+        return () => clearTimeout(timer);
+      }
+    } else {
       window.scrollTo(0, 0);
     }
-  }, [pathname]);
+  }, [pathname, hash]);
 
   return null;
 };

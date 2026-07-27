@@ -25,11 +25,9 @@ const ProjectFilter = ({ activeCategory, onFilterChange }: FilterProps) => {
 
   const categories: { id: string; value: ProjectCategory }[] = [
     { id: "projects.filter.all", value: "all" },
-    { id: "projects.filter.frontend", value: "frontend" },
-    { id: "projects.filter.fullstack", value: "fullstack" },
-    { id: "projects.filter.backend", value: "backend" },
-    { id: "projects.filter.ai-ml", value: "AI & ML" },
-    { id: "projects.filter.game-development", value: "game development" },
+    { id: "projects.filter.inhouse", value: "inhouse" },
+    { id: "projects.filter.freelance", value: "freelance" },
+    { id: "projects.filter.volunteer", value: "volunteer" },
   ];
 
   // Filtra as categorias ativas com base nos dados do projeto

@@ -20,12 +20,7 @@ import { TranslationsTab } from "../components/devmode/TranslationsTab";
 import { ProfileTab } from "../components/devmode/ProfileTab";
 
 const PROFILES = [
-  { id: "general", label: "General" },
-  { id: "cloud", label: "Cloud & DevOps" },
-  { id: "backend", label: "Backend" },
-  { id: "frontend", label: "Frontend" },
-  { id: "fullstack", label: "Fullstack" },
-  { id: "ia_ml", label: "AI & ML" },
+  { id: "general", label: "Translation Linguist CV" },
 ] as const;
 
 export const DevMode = () => {

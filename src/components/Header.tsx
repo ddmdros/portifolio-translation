@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { FormattedMessage } from "react-intl";
 import { LanguageSwitcher } from "./LanguageSwitcher";
-import { Link } from "react-router-dom";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { Sun, Moon } from "lucide-react";
 
 interface HeaderProps {
@@ -30,11 +29,12 @@ const MenuIcon = ({ isOpen }: { isOpen: boolean }) => (
 
 export const Header = ({ currentLocale, setLocale, theme, toggleTheme }: HeaderProps) => {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
   const closeMenu = () => setIsOpen(false);
+
   const navLinks = [
     { id: "header.home", to: `/${currentLocale}` },
-    { id: "header.projects", to: `/${currentLocale}/projects` },
-    { id: "header.blog", to: `/${currentLocale}/blog` },
+    { id: "header.projects", to: `/${currentLocale}#projects` },
     { id: "header.contact", to: `/${currentLocale}/contact` },
     { id: "header.resume", to: `/${currentLocale}/resume` },
   ];
@@ -47,37 +47,71 @@ export const Header = ({ currentLocale, setLocale, theme, toggleTheme }: HeaderP
     }
   };
 
+  const handleProjectsClick = (e: React.MouseEvent) => {
+    const isHomePath = window.location.pathname === `/${currentLocale}` || window.location.pathname === `/${currentLocale}/`;
+    if (isHomePath) {
+      e.preventDefault();
+      const element = document.getElementById("projects");
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  };
+
+  const checkIsActive = (linkId: string) => {
+    const currentPath = location.pathname;
+    const currentHash = location.hash;
+    const isHome = currentPath === `/${currentLocale}` || currentPath === `/${currentLocale}/` || currentPath === "/";
+
+    if (linkId === "header.home") {
+      return isHome && !currentHash;
+    }
+    if (linkId === "header.projects") {
+      return isHome && currentHash === "#projects";
+    }
+    if (linkId === "header.contact") {
+      return currentPath.includes("/contact");
+    }
+    if (linkId === "header.resume") {
+      return currentPath.includes("/resume");
+    }
+    return false;
+  };
+
   return (
-    <header className="sticky top-0 w-full text-text-h z-50 border-b border-white/10 bg-bg transition-colors duration-300">
+    <header className="sticky top-0 w-full text-text-h z-50 border-b border-white/10 bg-bg/85 backdrop-blur-md transition-colors duration-300">
       <div className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between relative">
         {/* Logo */}
         <div className="text-lg font-bold z-50">
           <Link to={`/${currentLocale}`} onClick={(e) => { closeMenu(); handleHomeClick(e); }}>
-            <FormattedMessage id="header.logo" defaultMessage="diogo.dev" />
+            <FormattedMessage id="header.logo" defaultMessage="diogo.translation" />
           </Link>
         </div>
 
         {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-6">
-          {navLinks.map((link) => (
-            <NavLink
-              key={link.id}
-              to={link.to}
-              onClick={(e) => {
-                if (link.id === "header.home") {
-                  handleHomeClick(e);
-                }
-              }}
-              className={({ isActive }) =>
-                `cursor-pointer text-sm font-medium transition-colors ${
-                  isActive ? "text-accent" : "text-gray-300 hover:text-white"
-                }`
-              }
-            >
-              <FormattedMessage id={link.id} />
-            </NavLink>
-          ))}
-          <div className="flex items-center gap-1.5 ml-2">
+          {navLinks.map((link) => {
+            const active = checkIsActive(link.id);
+            return (
+              <NavLink
+                key={link.id}
+                to={link.to}
+                onClick={(e) => {
+                  if (link.id === "header.home") handleHomeClick(e);
+                  if (link.id === "header.projects") handleProjectsClick(e);
+                }}
+                className={`cursor-pointer text-sm transition-all duration-200 ${
+                  active
+                    ? "text-accent font-bold"
+                    : "text-gray-300 hover:text-white font-medium"
+                }`}
+              >
+                <FormattedMessage id={link.id} />
+              </NavLink>
+            );
+          })}
+
+          <div className="flex items-center gap-2 ml-2 pl-2 border-l border-white/10">
             <LanguageSwitcher
               currentLocale={currentLocale}
               setLocale={setLocale}
@@ -117,7 +151,7 @@ export const Header = ({ currentLocale, setLocale, theme, toggleTheme }: HeaderP
           <div className="h-16 flex items-center justify-between px-6 border-b border-white/5">
             <div className="text-lg font-bold">
               <Link to={`/${currentLocale}`} onClick={(e) => { closeMenu(); handleHomeClick(e); }}>
-                <FormattedMessage id="header.logo" defaultMessage="diogo.dev" />
+                <FormattedMessage id="header.logo" defaultMessage="diogo.translation" />
               </Link>
             </div>
             <button
@@ -131,27 +165,27 @@ export const Header = ({ currentLocale, setLocale, theme, toggleTheme }: HeaderP
           {/* Links and content */}
           <div className="flex flex-col pt-8 px-6 pb-8 flex-1">
             <div className="flex flex-col gap-3">
-              {navLinks.map((link) => (
-                <NavLink
-                  key={link.id}
-                  to={link.to}
-                  onClick={(e) => {
-                    closeMenu();
-                    if (link.id === "header.home") {
-                      handleHomeClick(e);
-                    }
-                  }}
-                  className={({ isActive }) =>
-                    `text-lg font-semibold px-5 py-3.5 rounded-xl transition-all flex items-center justify-between ${
-                      isActive
-                        ? "bg-accent/5 text-accent"
+              {navLinks.map((link) => {
+                const active = checkIsActive(link.id);
+                return (
+                  <NavLink
+                    key={link.id}
+                    to={link.to}
+                    onClick={(e) => {
+                      closeMenu();
+                      if (link.id === "header.home") handleHomeClick(e);
+                      if (link.id === "header.projects") handleProjectsClick(e);
+                    }}
+                    className={`text-lg font-semibold px-5 py-3.5 rounded-xl transition-all flex items-center justify-between ${
+                      active
+                        ? "bg-accent/10 text-accent font-bold"
                         : "text-gray-300 hover:bg-white/5 hover:text-white"
-                    }`
-                  }
-                >
-                  <FormattedMessage id={link.id} />
-                </NavLink>
-              ))}
+                    }`}
+                  >
+                    <FormattedMessage id={link.id} />
+                  </NavLink>
+                );
+              })}
             </div>
 
             {/* Menu footer */}

@@ -10,208 +10,92 @@ export interface SkillType {
 
 export const SKILLS_DATA: SkillType[] = [
   {
-    "id": "s1",
-    "categoryKey": "about.stacks.programming.languages",
-    "name": "Python",
+    "id": "lang-en",
+    "categoryKey": "about.stacks.languages",
+    "name": "English (C2 Proficient)",
     "showInResume": [
-      "ia_ml",
+      "general"
+    ],
+    "credentialUrl": "https://www.efset.org/cert/iwWZUS"
+  },
+  {
+    "id": "lang-pt",
+    "categoryKey": "about.stacks.languages",
+    "name": "Portuguese (Native)",
+    "showInResume": [
       "general"
     ]
   },
   {
-    "id": "s2",
-    "categoryKey": "about.stacks.programming.languages",
-    "name": "JavaScript",
+    "id": "lang-fr",
+    "categoryKey": "about.stacks.languages",
+    "name": "French (Intermediate)",
     "showInResume": [
-      "general",
-      "frontend",
-      "fullstack",
-      "ia_ml"
-    ]
-  },
-  {
-    "id": "s3",
-    "categoryKey": "about.stacks.programming.languages",
-    "name": "Java",
-    "showInResume": [
-      "general",
-      "backend",
-      "fullstack",
-      "ia_ml"
-    ],
-    "resumeDetailsKey": "resume.skills.programming.java"
-  },
-  {
-    "id": "s4",
-    "categoryKey": "about.stacks.programming.languages",
-    "name": "C#",
-    "showInResume": [
-      "backend",
-      "fullstack",
-      "ia_ml"
-    ],
-    "resumeDetailsKey": "resume.skills.programming.csharp"
-  },
-  {
-    "id": "s5",
-    "categoryKey": "about.stacks.web.game.dev",
-    "name": "React",
-    "showInResume": [
-      "frontend",
-      "fullstack",
-      "ia_ml"
-    ]
-  },
-  {
-    "id": "s6",
-    "categoryKey": "about.stacks.web.game.dev",
-    "name": "TypeScript",
-    "showInResume": [
-      "frontend",
-      "fullstack",
-      "backend",
-      "cloud",
-      "ia_ml"
-    ],
-    "resumeDetailsKey": "resume.skills.programming.web"
-  },
-  {
-    "id": "s7",
-    "categoryKey": "about.stacks.web.game.dev",
-    "name": "Tailwind CSS",
-    "showInResume": [
-      "frontend",
-      "fullstack",
-      "ia_ml"
-    ]
-  },
-  {
-    "id": "s8",
-    "categoryKey": "about.stacks.web.game.dev",
-    "name": "Vite",
-    "showInResume": [
-      "frontend",
-      "fullstack",
-      "ia_ml"
-    ]
-  },
-  {
-    "id": "s9",
-    "categoryKey": "about.stacks.web.game.dev",
-    "name": "Node.js",
-    "showInResume": [
-      "backend",
-      "fullstack",
-      "general",
-      "ia_ml"
-    ]
-  },
-  {
-    "id": "s10",
-    "categoryKey": "about.stacks.web.game.dev",
-    "name": "HTML5",
-    "showInResume": [
-      "frontend",
-      "fullstack",
-      "ia_ml"
-    ]
-  },
-  {
-    "id": "s11",
-    "categoryKey": "about.stacks.web.game.dev",
-    "name": "CSS3",
-    "showInResume": [
-      "frontend",
-      "fullstack",
-      "ia_ml"
-    ]
-  },
-  {
-    "id": "s12",
-    "categoryKey": "about.stacks.web.game.dev",
-    "name": "Unity",
-    "showInResume": [
-      "ia_ml"
-    ]
-  },
-  {
-    "id": "s13",
-    "categoryKey": "about.stacks.data.devops",
-    "name": "PostgreSQL",
-    "showInResume": [
-      "backend",
-      "fullstack",
-      "ia_ml",
       "general"
     ]
   },
   {
-    "id": "s14",
-    "categoryKey": "about.stacks.data.devops",
-    "name": "Git & CI/CD",
+    "id": "cat-memoq",
+    "categoryKey": "about.stacks.cat.tools",
+    "name": "memoQ",
     "showInResume": [
-      "general",
-      "cloud",
-      "backend",
-      "frontend",
-      "fullstack",
-      "ia_ml"
+      "general"
     ]
   },
   {
-    "id": "s15",
-    "categoryKey": "about.stacks.data.devops",
-    "name": "Google Cloud",
+    "id": "cat-phrase",
+    "categoryKey": "about.stacks.cat.tools",
+    "name": "Phrase (former Memsource)",
     "showInResume": [
-      "general",
-      "cloud",
-      "backend",
-      "fullstack",
-      "ia_ml"
+      "general"
     ]
   },
   {
-    "id": "s16",
-    "categoryKey": "about.stacks.data.devops",
-    "name": "Supabase",
+    "id": "cat-trados",
+    "categoryKey": "about.stacks.cat.tools",
+    "name": "SDL Trados",
     "showInResume": [
-      "backend",
-      "frontend",
-      "fullstack",
-      "general",
-      "ia_ml"
+      "general"
     ]
   },
   {
-    "id": "s17",
-    "categoryKey": "resume.skills.languages",
-    "name": "English",
+    "id": "cat-wordfast",
+    "categoryKey": "about.stacks.cat.tools",
+    "name": "Wordfast",
     "showInResume": [
-      "general",
-      "cloud",
-      "backend",
-      "frontend",
-      "fullstack",
-      "ia_ml"
-    ],
-    "resumeDetailsKey": "resume.skills.languages.english",
-    "credentialUrl": "https://www.efset.org/cert/iwWZUS",
-    "certTextKey": "resume.skills.languages.english.cert"
+      "general"
+    ]
   },
   {
-    "id": "s18",
-    "categoryKey": "resume.skills.languages",
-    "name": "French",
+    "id": "soft-msoffice",
+    "categoryKey": "about.stacks.other.software",
+    "name": "MS Office",
     "showInResume": [
-      "general",
-      "cloud",
-      "backend",
-      "frontend",
-      "fullstack",
-      "ia_ml"
-    ],
-    "resumeDetailsKey": "resume.skills.languages.french",
-    "credentialUrl": "https://linkedin.com/in/diogo-medeiros",
-    "certTextKey": "resume.skills.languages.french.cert"
+      "general"
+    ]
+  },
+  {
+    "id": "soft-ps",
+    "categoryKey": "about.stacks.other.software",
+    "name": "Adobe Photoshop",
+    "showInResume": [
+      "general"
+    ]
+  },
+  {
+    "id": "soft-ai",
+    "categoryKey": "about.stacks.other.software",
+    "name": "Adobe Illustrator",
+    "showInResume": [
+      "general"
+    ]
+  },
+  {
+    "id": "soft-id",
+    "categoryKey": "about.stacks.other.software",
+    "name": "Adobe InDesign",
+    "showInResume": [
+      "general"
+    ]
   }
 ];

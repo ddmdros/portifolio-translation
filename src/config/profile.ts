@@ -10,7 +10,7 @@ export const PROFILE_CONFIG = {
   emailContact: "diogomedeirostranslation@gmail.com",
   
   // Email exibido no cabeçalho do Currículo (PDF e site)
-  emailResume: "ddmdros@proton.me",
+  emailResume: "diogomedeirostranslation@gmail.com",
   
   // URL completa do perfil do GitHub
   githubUrl: "https://github.com/ddmdros",
@@ -25,7 +25,7 @@ export const PROFILE_CONFIG = {
   linkedinUser: "diogo-medeiros",
   
   // URL de produção do portfólio online (usado nos links de rodapé do PDF do CV)
-  portfolioUrl: "https://portifolio-tawny-xi-55.vercel.app",
+  portfolioUrl: "https://diogomedeiros.carrd.co",
   
   // Link do perfil público do Google Skills
   googleSkillsProfile: "https://www.skills.google/public_profiles/34ba9945-3ca3-4701-9312-d811fca01bf7",
@@ -36,8 +36,8 @@ export const PROFILE_CONFIG = {
   // Links de rodapé das seções do currículo
   cvProjectsMoreUrl: "",
   cvProjectsMoreTextKey: "More Projects",
-  cvProjectsMoreLinkKey: "https://portifolio-tawny-xi-55.vercel.app/en/projects",
+  cvProjectsMoreLinkKey: "https://diogomedeiros.carrd.co",
   cvCertsMoreUrl: "",
   cvCertsMoreTextKey: "More Certifications",
-  cvCertsMoreLinkKey: "https://portifolio-tawny-xi-55.vercel.app/en/resume"
+  cvCertsMoreLinkKey: "https://diogomedeiros.carrd.co"
 };

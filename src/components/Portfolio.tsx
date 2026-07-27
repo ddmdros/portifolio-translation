@@ -32,7 +32,7 @@ const Portfolio = () => {
           <p className="text-text-h font-medium text-lg">
             <FormattedMessage
               id="portifolio.job-title"
-              defaultMessage="Fullstack Software Engineer"
+              defaultMessage="Brazilian Portuguese Linguist (EN > PTBR)"
             />
           </p>
         </div>
@@ -40,7 +40,7 @@ const Portfolio = () => {
         <p className="text-gray-400 leading-relaxed max-w-xl">
           <FormattedMessage
             id="portifolio.description"
-            defaultMessage="Full-Stack Developer and Software Engineering student. With 6 years of experience in game localization, I bring international professional maturity and a rigorous eye for detail to software development."
+            defaultMessage="Brazilian Portuguese linguist. Sensitivity reader for gender and sexualities matters. Enthusiast of comic books, fantasy literature, and poetic prose."
           />
         </p>
 

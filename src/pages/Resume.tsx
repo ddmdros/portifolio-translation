@@ -10,12 +10,7 @@ import { ResumeCertificationsSection } from "../components/resume/ResumeCertific
 import { PROFILE_CONFIG } from "../config/profile";
 
 const PROFILE_LABELS: Record<string, { en: string; pt: string }> = {
-  general: { en: "General", pt: "Geral" },
-  cloud: { en: "Cloud & DevOps", pt: "Cloud & DevOps" },
-  backend: { en: "Backend", pt: "Backend" },
-  frontend: { en: "Frontend", pt: "Frontend" },
-  fullstack: { en: "Fullstack", pt: "Fullstack" },
-  ia_ml: { en: "AI & ML", pt: "IA & ML" },
+  general: { en: "Translation Resume", pt: "Currículo de Tradução" },
 };
 
 const SCROLL_DELAY_MS = 100;
@@ -40,16 +35,12 @@ export const Resume = () => {
     }
   }, [hash]);
 
-  // Dynamically generate skillsList from SKILLS_DATA (excluding languages category)
-  const technicalSkills = SKILLS_DATA.filter(
-    (s) => s.categoryKey !== "resume.skills.languages",
-  );
   const categories = Array.from(
-    new Set(technicalSkills.map((s) => s.categoryKey)),
+    new Set(SKILLS_DATA.map((s) => s.categoryKey)),
   );
   const skillsList = categories.map((cat) => ({
     category: cat,
-    items: technicalSkills
+    items: SKILLS_DATA
       .filter((s) => s.categoryKey === cat)
       .map((s) => s.name),
   }));

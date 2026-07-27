@@ -12,7 +12,7 @@ export interface ExperienceType {
 
 export const EXPERIENCE_DATA: ExperienceType[] = [
   {
-    "id": "1",
+    "id": "exp-keywords",
     "titleKey": "resume.exp.keywords.title",
     "companyKey": "resume.exp.keywords.company",
     "dateKey": "resume.exp.keywords.date",
@@ -22,32 +22,34 @@ export const EXPERIENCE_DATA: ExperienceType[] = [
       "resume.exp.keywords.desc3"
     ],
     "showInResume": [
-      "general",
-      "cloud",
-      "backend",
-      "frontend",
-      "fullstack",
-      "ia_ml"
+      "general"
     ],
-    "linkUrl": "https://google.com",
-    "linkTextKey": "resume.link.google.text"
+    "linkUrl": "https://diogomedeiros.carrd.co",
+    "linkTextKey": "resume.link.portfolio"
   },
   {
-    "id": "2",
+    "id": "exp-independent",
     "titleKey": "resume.exp.independent.title",
     "companyKey": "resume.exp.independent.company",
     "dateKey": "resume.exp.independent.date",
     "descKeys": [
       "resume.exp.independent.desc1"
     ],
-    "portfolioUrlKey": "resume.link.portfolio",
     "showInResume": [
-      "general",
-      "cloud",
-      "backend",
-      "frontend",
-      "fullstack",
-      "ia_ml"
+      "general"
+    ],
+    "portfolioUrlKey": "resume.link.portfolio"
+  },
+  {
+    "id": "exp-webtoon",
+    "titleKey": "resume.exp.webtoon.title",
+    "companyKey": "resume.exp.webtoon.company",
+    "dateKey": "resume.exp.webtoon.date",
+    "descKeys": [
+      "resume.exp.webtoon.desc1"
+    ],
+    "showInResume": [
+      "general"
     ]
   }
 ];

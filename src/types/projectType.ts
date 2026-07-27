@@ -1,18 +1,23 @@
 export type ProjectCategory =
   | "all"
-  | "frontend"
-  | "backend"
-  | "fullstack"
-  | "AI & ML"
-  | "game development";
+  | "inhouse"
+  | "freelance"
+  | "volunteer";
 
 export interface ProjectType {
   id: string;
   title: string;
   category: ProjectCategory | ProjectCategory[];
   description: string;
+  genre?: string;
+  role?: string;
+  developer?: string;
+  wordCount?: string;
+  year?: string;
   tags: string[];
   imageUrl: string;
+  creditImageUrl?: string;
+  steamUrl?: string;
   docsUrl?: string;
   githubUrl?: string;
   projectUrl?: string;
@@ -24,4 +29,5 @@ export interface ProjectType {
   linkUrl?: string;
   linkTextKey?: string;
 }
+
 

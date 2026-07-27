@@ -1,91 +1,64 @@
-import {
-  SiPython,
-  SiJavascript,
-  SiReact,
-  SiTypescript,
-  SiTailwindcss,
-  SiNodedotjs,
-  SiPostgresql,
-  SiGit,
-  SiUnity,
-  SiGooglecloud,
-  SiSupabase,
-  SiVite,
-} from "react-icons/si";
-
-import { FaJava, FaHtml5, FaCss3 } from "react-icons/fa";
-
-import { TbBrandCSharp } from "react-icons/tb";
-
-import { SectionDiv } from "./SectionDiv";
 import { FormattedMessage } from "react-intl";
+import { SectionDiv } from "./SectionDiv";
+import {
+  Languages,
+  Wrench,
+  FileCode2,
+  Globe,
+  Sparkles,
+  BookOpen,
+} from "lucide-react";
 
-const techStackGroups = [
+const translationStackGroups = [
   {
-    category: "about.stacks.programming.languages",
-    technologies: [
-      { name: "Python", icon: <SiPython /> },
-      { name: "JavaScript", icon: <SiJavascript /> },
-      { name: "Java", icon: <FaJava /> },
-      { name: "C#", icon: <TbBrandCSharp /> },
+    category: "about.stacks.languages",
+    items: [
+      { name: "English (C2)", icon: <Globe size={22} className="text-accent" /> },
+      { name: "Portuguese (Native)", icon: <Languages size={22} className="text-accent" /> },
+      { name: "French (Intermediate)", icon: <BookOpen size={22} className="text-accent" /> },
     ],
   },
   {
-    category: "about.stacks.web.game.dev",
-    technologies: [
-      { name: "React", icon: <SiReact /> },
-      { name: "TypeScript", icon: <SiTypescript /> },
-      { name: "Tailwind CSS", icon: <SiTailwindcss /> },
-      { name: "Vite", icon: <SiVite /> },
-      { name: "Node.js", icon: <SiNodedotjs /> },
-      { name: "HTML5", icon: <FaHtml5 /> },
-      { name: "CSS3", icon: <FaCss3 /> },
-      { name: "Unity", icon: <SiUnity /> },
-    ],
-  },
-  {
-    category: "about.stacks.data.devops",
-    technologies: [
-      { name: "PostgreSQL", icon: <SiPostgresql /> },
-      { name: "Git & CI/CD", icon: <SiGit /> },
-      { name: "Google Cloud", icon: <SiGooglecloud /> },
-      { name: "Supabase", icon: <SiSupabase /> },
+    category: "about.stacks.cat.tools",
+    items: [
+      { name: "memoQ", icon: <Wrench size={22} className="text-accent" /> },
+      { name: "Phrase / Memsource", icon: <Sparkles size={22} className="text-accent" /> },
+      { name: "SDL Trados", icon: <FileCode2 size={22} className="text-accent" /> },
+      { name: "Wordfast", icon: <Wrench size={22} className="text-accent" /> },
     ],
   },
 ];
 
 const AboutGroupedStacks = () => {
   return (
-    <section className="py-20">
+    <section className="py-12">
       <SectionDiv sectionNumber="01" sectionTitleId="section.title.1" />
 
-      <div className="grid lg:grid-cols-2 gap-16 items-start">
+      <div className="grid lg:grid-cols-2 gap-12 items-start">
         <div className="space-y-6">
           <h2 className="text-4xl md:text-5xl font-bold text-text-h leading-tight">
-            <FormattedMessage id={"about.title"} />
+            <FormattedMessage id="about.title" />
           </h2>
-          <p className="text-gray-400 leading-relaxed whitespace-pre-line">
-            <FormattedMessage id={"about.description"} />
+          <p className="text-gray-400 leading-relaxed whitespace-pre-line text-base">
+            <FormattedMessage id="about.description" />
           </p>
         </div>
 
         <div className="space-y-8">
-          {techStackGroups.map((group) => (
-            <div key={group.category}>
-              <h3 className="text-xl font-semibold text-white mb-4">
+          {translationStackGroups.map((group) => (
+            <div key={group.category} className="bg-card-bg/40 border border-white/10 p-6 rounded-2xl">
+              <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2 border-b border-white/10 pb-3">
                 <FormattedMessage id={group.category} />
               </h3>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                {group.technologies.map((tech) => (
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                {group.items.map((item) => (
                   <div
-                    key={tech.name}
-                    className="flex flex-col items-center justify-center p-4 bg-card-bg border border-white/10 rounded-xl hover:border-accent/50 transition-all hover:scale-105"
+                    key={item.name}
+                    className="flex flex-col items-center justify-center p-3.5 bg-white/5 border border-white/10 rounded-xl hover:border-accent/40 transition-all hover:scale-102"
                   >
-                    <div className="text-2xl mb-2 text-gray-300">
-                      {tech.icon}
-                    </div>
-                    <span className="text-xs text-gray-400 font-medium text-center">
-                      {tech.name}
+                    <div className="mb-2">{item.icon}</div>
+                    <span className="text-xs text-gray-300 font-semibold text-center">
+                      {item.name}
                     </span>
                   </div>
                 ))}

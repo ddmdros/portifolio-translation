@@ -24,8 +24,8 @@ export const ProjectsTab = ({
     const newId = `p${projects.length + 1}_${Date.now().toString().slice(-4)}`;
     const titleKey = `project.title.${newId}`;
     const descKey = `project.description.${newId}`;
-    updateTrans(titleKey, "en", "New Project Title");
-    updateTrans(titleKey, "pt", "Título do Novo Projeto");
+    updateTrans(titleKey, "en", "New Translation Project");
+    updateTrans(titleKey, "pt", "Novo Projeto de Tradução");
     updateTrans(descKey, "en", "New Project Description");
     updateTrans(descKey, "pt", "Descrição do Novo Projeto");
 
@@ -34,12 +34,16 @@ export const ProjectsTab = ({
       {
         id: newId,
         title: titleKey,
-        category: "fullstack",
+        category: "freelance",
         description: descKey,
-        tags: ["React"],
-        imageUrl: "/assets/projects/placeholder.png",
+        genre: "Game Genre",
+        role: "Translator & Editor",
+        wordCount: "10k+ words",
+        year: "2024",
+        tags: ["EN > PTBR"],
+        imageUrl: "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1200&q=80",
         isFeatured: false,
-        showInResume: [],
+        showInResume: ["general"],
         descKeys: [],
       },
     ]);
@@ -47,19 +51,19 @@ export const ProjectsTab = ({
 
   return (
     <DevModeTabPanel
-      title="Manage Projects"
-      description="Manage your portfolio projects and showcase details."
+      title="Manage Translation Projects"
+      description="Add, edit, reorder, or feature your localization and translation projects."
       items={projects}
       onAdd={handleAdd}
       onDelete={(id) => setProjects(projects.filter((p) => p.id !== id))}
-      addButtonLabel="Add Project"
-      emptyMessage="No projects found. Click 'Add Project' to create one."
+      addButtonLabel="Add Translation Project"
+      emptyMessage="No projects found. Click 'Add Translation Project' to create one."
       dragState={dragState}
       renderCardHeader={(item) => {
         const title = getTrans(item.title, "en") || "New Project";
         return (
           <div className="flex items-center gap-2">
-            <span>{title}</span>
+            <span className="font-bold">{title}</span>
             <span className="text-xs font-mono text-gray-500 font-normal">
               (ID: {item.id})
             </span>
@@ -88,10 +92,109 @@ export const ProjectsTab = ({
               rows={2}
             />
 
-            <div className="grid md:grid-cols-3 gap-4">
+            {/* Translation Specific Fields: Role, Developer, Genre, Word Count, Year */}
+            <div className="grid md:grid-cols-5 gap-4 bg-white/5 border border-white/10 p-4 rounded-xl">
               <div>
                 <label className="block text-xs font-semibold text-gray-400 mb-1">
-                  Category (comma separated)
+                  My Role (e.g. Translator / Editor)
+                </label>
+                <input
+                  type="text"
+                  value={item.role || ""}
+                  onChange={(e) => {
+                    setProjects(
+                      updateItemAtIndex(projects, pIdx, {
+                        role: e.target.value,
+                      })
+                    );
+                  }}
+                  placeholder="e.g. Translator & Editor"
+                  className="w-full bg-black/40 border border-white/10 rounded-lg px-3 py-2 text-sm text-white focus:border-accent focus:outline-none"
+                />
+              </div>
+
+              <div>
+                <label className="block text-xs font-semibold text-gray-400 mb-1">
+                  Developer / Studio
+                </label>
+                <input
+                  type="text"
+                  value={item.developer || ""}
+                  onChange={(e) => {
+                    setProjects(
+                      updateItemAtIndex(projects, pIdx, {
+                        developer: e.target.value,
+                      })
+                    );
+                  }}
+                  placeholder="e.g. Bungie, Supercell"
+                  className="w-full bg-black/40 border border-white/10 rounded-lg px-3 py-2 text-sm text-white focus:border-accent focus:outline-none"
+                />
+              </div>
+
+              <div>
+                <label className="block text-xs font-semibold text-gray-400 mb-1">
+                  Game Genre
+                </label>
+                <input
+                  type="text"
+                  value={item.genre || ""}
+                  onChange={(e) => {
+                    setProjects(
+                      updateItemAtIndex(projects, pIdx, {
+                        genre: e.target.value,
+                      })
+                    );
+                  }}
+                  placeholder="e.g. AAA Sci-Fi FPS"
+                  className="w-full bg-black/40 border border-white/10 rounded-lg px-3 py-2 text-sm text-white focus:border-accent focus:outline-none"
+                />
+              </div>
+
+              <div>
+                <label className="block text-xs font-semibold text-gray-400 mb-1">
+                  Approx. Word Count
+                </label>
+                <input
+                  type="text"
+                  value={item.wordCount || ""}
+                  onChange={(e) => {
+                    setProjects(
+                      updateItemAtIndex(projects, pIdx, {
+                        wordCount: e.target.value,
+                      })
+                    );
+                  }}
+                  placeholder="e.g. 400k+ words"
+                  className="w-full bg-black/40 border border-white/10 rounded-lg px-3 py-2 text-sm text-white focus:border-accent focus:outline-none"
+                />
+              </div>
+
+              <div>
+                <label className="block text-xs font-semibold text-gray-400 mb-1">
+                  Year / Period
+                </label>
+                <input
+                  type="text"
+                  value={item.year || ""}
+                  onChange={(e) => {
+                    setProjects(
+                      updateItemAtIndex(projects, pIdx, {
+                        year: e.target.value,
+                      })
+                    );
+                  }}
+                  placeholder="e.g. 2023"
+                  className="w-full bg-black/40 border border-white/10 rounded-lg px-3 py-2 text-sm text-white focus:border-accent focus:outline-none"
+                />
+              </div>
+            </div>
+
+            {/* Category, Tags, Image & Credit Image */}
+            <div className="grid md:grid-cols-2 gap-4">
+              <div>
+                <label className="block text-xs font-semibold text-gray-400 mb-1">
+                  Category (inhouse, freelance, volunteer)
                 </label>
                 <input
                   type="text"
@@ -112,6 +215,7 @@ export const ProjectsTab = ({
                   className="w-full bg-black/40 border border-white/10 rounded-lg px-3 py-2 text-sm text-white focus:border-accent focus:outline-none"
                 />
               </div>
+
               <div>
                 <label className="block text-xs font-semibold text-gray-400 mb-1">
                   Tags (comma separated)
@@ -129,9 +233,12 @@ export const ProjectsTab = ({
                   className="w-full bg-black/40 border border-white/10 rounded-lg px-3 py-2 text-sm text-white focus:border-accent focus:outline-none"
                 />
               </div>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-4">
               <div>
                 <label className="block text-xs font-semibold text-gray-400 mb-1">
-                  Image URL
+                  Project Banner Image URL
                 </label>
                 <input
                   type="text"
@@ -146,60 +253,45 @@ export const ProjectsTab = ({
                   className="w-full bg-black/40 border border-white/10 rounded-lg px-3 py-2 text-sm text-white focus:border-accent focus:outline-none"
                 />
               </div>
+
+              <div>
+                <label className="block text-xs font-semibold text-gray-400 mb-1">
+                  Credit / Proof Screenshot URL (Optional)
+                </label>
+                <input
+                  type="text"
+                  value={item.creditImageUrl || ""}
+                  onChange={(e) => {
+                    setProjects(
+                      updateItemAtIndex(projects, pIdx, {
+                        creditImageUrl: e.target.value || undefined,
+                      })
+                    );
+                  }}
+                  placeholder="e.g. https://... or /assets/credits/destiny2.jpg"
+                  className="w-full bg-black/40 border border-white/10 rounded-lg px-3 py-2 text-sm text-white focus:border-accent focus:outline-none"
+                />
+              </div>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-4">
-              <div>
-                <label className="block text-xs font-semibold text-gray-400 mb-1">
-                  GitHub URL
-                </label>
-                <input
-                  type="text"
-                  value={item.githubUrl || ""}
-                  onChange={(e) => {
-                    setProjects(
-                      updateItemAtIndex(projects, pIdx, {
-                        githubUrl: e.target.value || undefined,
-                      })
-                    );
-                  }}
-                  className="w-full bg-black/40 border border-white/10 rounded-lg px-3 py-2 text-sm text-white focus:border-accent focus:outline-none"
-                />
-              </div>
-              <div>
-                <label className="block text-xs font-semibold text-gray-400 mb-1">
-                  Live Project URL
-                </label>
-                <input
-                  type="text"
-                  value={item.projectUrl || ""}
-                  onChange={(e) => {
-                    setProjects(
-                      updateItemAtIndex(projects, pIdx, {
-                        projectUrl: e.target.value || undefined,
-                      })
-                    );
-                  }}
-                  className="w-full bg-black/40 border border-white/10 rounded-lg px-3 py-2 text-sm text-white focus:border-accent focus:outline-none"
-                />
-              </div>
-              <div>
-                <label className="block text-xs font-semibold text-gray-400 mb-1">
-                  Docs ID (optional)
-                </label>
-                <input
-                  type="text"
-                  value={item.docId || ""}
-                  onChange={(e) => {
-                    setProjects(
-                      updateItemAtIndex(projects, pIdx, {
-                        docId: e.target.value || undefined,
-                      })
-                    );
-                  }}
-                  className="w-full bg-black/40 border border-white/10 rounded-lg px-3 py-2 text-sm text-white focus:border-accent focus:outline-none"
-                />
-              </div>
+            <div className="bg-white/5 border border-white/10 p-4 rounded-xl space-y-2">
+              <label className="block text-xs font-bold text-accent uppercase tracking-wider mb-1 flex items-center gap-1.5">
+                🎮 Steam / Store URL
+              </label>
+              <input
+                type="text"
+                value={item.steamUrl || item.projectUrl || ""}
+                onChange={(e) => {
+                  setProjects(
+                    updateItemAtIndex(projects, pIdx, {
+                      steamUrl: e.target.value || undefined,
+                      projectUrl: e.target.value || undefined,
+                    })
+                  );
+                }}
+                placeholder="e.g. https://store.steampowered.com/app/1086940/..."
+                className="w-full bg-black/40 border border-white/10 rounded-lg px-3 py-2 text-sm text-white focus:border-accent focus:outline-none"
+              />
             </div>
 
             <CustomLinkFields
@@ -208,11 +300,11 @@ export const ProjectsTab = ({
               setItems={setProjects}
               updateTrans={updateTrans}
               getTrans={getTrans}
-              urlLabel="Custom Clickable Link URL (Optional - default: Live URL / GitHub URL)"
-              urlPlaceholder="e.g. https://github.com/ddmdros/officeMayhem"
+              urlLabel="External Project Link (Optional)"
+              urlPlaceholder="e.g. https://diogomedeiros.carrd.co"
               textKeyPlaceholder="resume.project.custom.link"
-              defaultTextEn="Link here"
-              defaultTextPt="Link aqui"
+              defaultTextEn="View Game on Steam"
+              defaultTextPt="Ver jogo na Steam"
             />
 
             <div className="flex flex-wrap gap-6 border-t border-white/5 pt-3">
@@ -229,7 +321,7 @@ export const ProjectsTab = ({
                   }}
                   className="rounded border-white/10 bg-black/40 text-accent focus:ring-accent"
                 />
-                Work In Progress
+                Live Service Game
               </label>
 
               <label className="flex items-center gap-2 text-xs font-semibold text-gray-300 cursor-pointer select-none">
@@ -245,7 +337,7 @@ export const ProjectsTab = ({
                   }}
                   className="rounded border-white/10 bg-black/40 text-accent focus:ring-accent"
                 />
-                Is Featured (Portfolio home card)
+                Featured Highlight (Home Page Card)
               </label>
             </div>
 
@@ -266,5 +358,3 @@ export const ProjectsTab = ({
     />
   );
 };
-
-
