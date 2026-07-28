@@ -1,18 +1,13 @@
 import { Link, useNavigate } from "react-router-dom";
 import { FormattedMessage, useIntl } from "react-intl";
 import { SectionDiv } from "./SectionDiv";
-import { GraduationCap, Briefcase, ArrowRight, Award, ExternalLink, Pin } from "lucide-react";
-import { CERTIFICATIONS_DATA } from "../content/CertificationsData";
+import { GraduationCap, Briefcase, ArrowRight } from "lucide-react";
 import { EDUCATION_DATA } from "../content/EducationData";
 import { EXPERIENCE_DATA } from "../content/ExperienceData";
 
 const ResumePreview = () => {
   const navigate = useNavigate();
   const { locale } = useIntl();
-  const getCertUrl = (cert: typeof CERTIFICATIONS_DATA[0]) => {
-    if (locale === "pt" && cert.credentialUrlPt) return cert.credentialUrlPt;
-    return cert.credentialUrl;
-  };
   return (
     <section className="py-20 border-t border-white/5">
       <SectionDiv sectionNumber="03" sectionTitleId="section.title.3" />
@@ -61,7 +56,7 @@ const ResumePreview = () => {
           </div>
         </div>
 
-        {/* Card de Educação */}
+        {/* Card de Pós-Graduação */}
         <div onClick={() => navigate(`/${locale}/resume#education`)} className="group bg-card-bg border border-white/10 p-6 rounded-2xl hover:border-accent/40 transition-all duration-300 relative overflow-hidden flex flex-col justify-between h-full cursor-pointer">
           <div className="space-y-4">
             <div className="flex items-center gap-3">
@@ -82,71 +77,36 @@ const ResumePreview = () => {
               <p className="text-sm text-gray-300 font-semibold">
                 <FormattedMessage id={EDUCATION_DATA[0].titleKey} />
               </p>
-              <p className="text-xs text-gray-500 leading-relaxed">
-                <FormattedMessage id={EDUCATION_DATA[1].titleKey} /> & <FormattedMessage id={EDUCATION_DATA[2].titleKey} />
-              </p>
             </div>
           </div>
         </div>
 
-        {/* Card de Certificações */}
-        <div onClick={() => navigate(`/${locale}/resume#certifications`)} className="group bg-card-bg border border-white/10 p-6 rounded-2xl hover:border-accent/40 transition-all duration-300 relative overflow-hidden flex flex-col justify-between h-full cursor-pointer">
+        {/* Card de Jornalismo (UFSC) */}
+        <div onClick={() => navigate(`/${locale}/resume#education`)} className="group bg-card-bg border border-white/10 p-6 rounded-2xl hover:border-accent/40 transition-all duration-300 relative overflow-hidden flex flex-col justify-between h-full cursor-pointer">
           <div className="space-y-4">
             <div className="flex items-center gap-3">
               <div className="p-2.5 rounded-lg bg-accent/10 text-accent">
-                <Award size={20} />
+                <GraduationCap size={20} />
               </div>
               <div>
                 <h3 className="font-bold text-white text-lg">
-                  <FormattedMessage id="resume.section.certifications" defaultMessage="Certifications" />
+                  <FormattedMessage id={EDUCATION_DATA[1].instKey} />
                 </h3>
                 <span className="text-xs text-accent font-medium font-mono">
-                  {CERTIFICATIONS_DATA.length} <FormattedMessage id="resume.section.certifications" defaultMessage="Certifications" />
+                  <FormattedMessage id={EDUCATION_DATA[1].dateKey} />
                 </span>
               </div>
             </div>
             
-            <div className="pl-[52px] space-y-3">
-              {CERTIFICATIONS_DATA.filter((c) => c.showOnHome)
-                .sort((a, b) => (b.sectionHighlight ? 1 : 0) - (a.sectionHighlight ? 1 : 0))
-                .slice(0, 5)
-                .map((cert) => (
-                  <div
-                    key={cert.id}
-                    className={`text-left pl-3 transition-all ${
-                      cert.sectionHighlight
-                        ? "border-l border-amber-500 bg-amber-500/5 shadow-[0_0_10px_rgba(245,158,11,0.03)] rounded-r-lg p-1.5"
-                        : "border-l border-accent/20"
-                    }`}
-                  >
-                    <p className="text-xs font-semibold text-gray-300 truncate" title={cert.titleKey}>
-                      {getCertUrl(cert) ? (
-                        <a
-                          href={getCertUrl(cert)}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className={`inline-flex items-center gap-1 transition-colors ${
-                            cert.sectionHighlight ? "hover:text-amber-400 text-amber-100" : "hover:text-accent text-gray-300"
-                          }`}
-                          onClick={(e) => e.stopPropagation()}
-                        >
-                          {cert.sectionHighlight && <Pin size={10} className="shrink-0 text-amber-500 rotate-[30deg]" />}
-                          <FormattedMessage id={cert.titleKey} />
-                          <ExternalLink size={10} className="shrink-0 opacity-70" />
-                        </a>
-                      ) : (
-                        <span className="inline-flex items-center gap-1">
-                          {cert.sectionHighlight && <Pin size={10} className="shrink-0 text-amber-500 rotate-[30deg]" />}
-                          <FormattedMessage id={cert.titleKey} />
-                        </span>
-                      )}
-                    </p>
-                    <p className="text-[10px] text-gray-500">
-                      <FormattedMessage id={cert.orgKey} /> &bull; {cert.year}
-                      {cert.hours && ` \u2022 ${cert.hours}h`}
-                    </p>
-                  </div>
-                ))}
+            <div className="pl-[52px] space-y-1">
+              <p className="text-sm text-gray-300 font-semibold">
+                <FormattedMessage id={EDUCATION_DATA[1].titleKey} />
+              </p>
+              {EDUCATION_DATA[1].gpaKey && (
+                <p className="text-xs text-gray-500 leading-relaxed">
+                  <FormattedMessage id={EDUCATION_DATA[1].gpaKey} />
+                </p>
+              )}
             </div>
           </div>
         </div>
