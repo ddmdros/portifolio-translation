@@ -12,6 +12,6 @@ export const CERTIFICATIONS_DATA: CertificationType[] = [
     "category": "idiomas",
     "credentialUrl": "https://www.efset.org/cert/iwWZUS",
     "showOnHome": true,
-    "sectionHighlight": true
+    "sectionHighlight": false
   }
 ];

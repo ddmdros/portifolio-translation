@@ -378,8 +378,9 @@ function getHtmlTemplate(lang, messages, profile) {
     }
     .exp-header {
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-start;
       align-items: baseline;
+      gap: 8px;
       font-weight: 700;
       color: #0f172a;
       margin-bottom: 2px;
