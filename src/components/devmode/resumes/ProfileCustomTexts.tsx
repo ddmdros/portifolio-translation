@@ -85,33 +85,22 @@ export const ProfileCustomTexts = ({
     <div className="bg-white/5 border border-white/10 rounded-2xl p-5 space-y-4">
       <h3 className="text-sm font-bold text-accent text-left">Profile Custom Texts</h3>
       <p className="text-xs text-gray-400 text-left">
-        Customize the job title, professional goal, and description for this CV profile (used in PDF rendering).
+        Customize the job title and professional description for this CV profile (used in PDF rendering).
       </p>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
         <ProfileField
           label="Job Title / Header"
           field="header"
           activeProfile={activeProfile}
-          placeholderEn="e.g. Backend Engineer"
-          placeholderPt="Ex: Engenheiro Backend"
+          placeholderEn="e.g. Game & Literary Translator / Localizer"
+          placeholderPt="Ex: Tradutor e Localizador de Jogos e Literaturas"
           getTrans={getTrans}
           updateTrans={updateTrans}
         />
 
         <ProfileField
-          label="Professional Goal / Objetivo"
-          field="goal"
-          activeProfile={activeProfile}
-          isTextArea={true}
-          placeholderEn="Enter professional goal..."
-          placeholderPt="Escreva o objetivo profissional..."
-          getTrans={getTrans}
-          updateTrans={updateTrans}
-        />
-
-        <ProfileField
-          label="Profile Description / Resumo"
+          label="Profile Description / Resumo Profissional"
           field="description"
           activeProfile={activeProfile}
           isTextArea={true}

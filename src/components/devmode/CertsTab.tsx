@@ -50,18 +50,9 @@ export const CertsTab = ({
     updateTrans(orgKey, "en", "Issuer Org");
     updateTrans(orgKey, "pt", "Org Emissora");
 
-    const defaultCategory = [
-      "ia_ml",
-      "ia_agents",
-      "back",
-      "frontend",
-      "cloud",
-      "game_dev",
-      "fundamentos",
-      "idiomas",
-    ].includes(certFilter)
+    const defaultCategory = ["idiomas", "geral"].includes(certFilter)
       ? (certFilter as CertificationType["category"])
-      : "cloud";
+      : "idiomas";
 
     const defaultShowOnHome = certFilter === "featured";
 
@@ -174,14 +165,8 @@ export const CertsTab = ({
           <CategoryFilter
             categories={[
               { id: "all", label: "All" },
-              { id: "ia_agents", label: "AI Agents" },
-              { id: "ia_ml", label: "IA & ML" },
-              { id: "back", label: "Backend" },
-              { id: "frontend", label: "Frontend" },
-              { id: "cloud", label: "Cloud & DevOps" },
-              { id: "game_dev", label: "Game Dev" },
-              { id: "fundamentos", label: "Fundamentos" },
-              { id: "idiomas", label: "Idiomas" },
+              { id: "idiomas", label: "Languages / Idiomas" },
+              { id: "geral", label: "General / Geral" },
             ] as const}
             activeCategory={certFilter}
             setActiveCategory={setCertFilter}
@@ -326,14 +311,8 @@ export const CertsTab = ({
                   }}
                   className="w-full bg-black/40 border border-white/10 rounded-lg px-3 py-1.5 text-xs text-white focus:border-accent focus:outline-none"
                 >
-                  <option value="ia_ml">IA & ML</option>
-                  <option value="ia_agents">Agentes de IA</option>
-                  <option value="back">Backend</option>
-                  <option value="frontend">Frontend</option>
-                  <option value="cloud">Cloud & DevOps</option>
-                  <option value="game_dev">Game Development</option>
-                  <option value="fundamentos">Fundamentos</option>
-                  <option value="idiomas">Idiomas</option>
+                  <option value="idiomas">Languages / Idiomas</option>
+                  <option value="geral">General / Geral</option>
                 </select>
               </div>
             </div>

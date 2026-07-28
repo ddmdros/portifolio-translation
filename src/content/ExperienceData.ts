@@ -24,7 +24,7 @@ export const EXPERIENCE_DATA: ExperienceType[] = [
     "showInResume": [
       "general"
     ],
-    "linkUrl": "https://diogomedeiros.carrd.co",
+    "linkUrl": "https://portifolio-translation.vercel.app/",
     "linkTextKey": "resume.link.portfolio"
   },
   {

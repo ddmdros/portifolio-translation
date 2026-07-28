@@ -14,7 +14,7 @@ export const PROFILE_CONFIG = {
   
   // URL completa do perfil do GitHub
   githubUrl: "https://github.com/ddmdros",
-
+  
   // URL completa do perfil do MobyGames
   mobyGamesUrl: "https://www.mobygames.com/person/1420566/diogo-de-souza-medeiros/",
   
@@ -28,7 +28,7 @@ export const PROFILE_CONFIG = {
   linkedinUser: "diogo-medeiros",
   
   // URL de produção do portfólio online (usado nos links de rodapé do PDF do CV)
-  portfolioUrl: "https://diogomedeiros.carrd.co",
+  portfolioUrl: "https://portifolio-translation.vercel.app",
   
   // Link do perfil público do Google Skills
   googleSkillsProfile: "https://www.skills.google/public_profiles/34ba9945-3ca3-4701-9312-d811fca01bf7",

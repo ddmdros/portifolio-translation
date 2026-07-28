@@ -107,6 +107,25 @@ export const DevMode = () => {
 
     setIsSaving(true);
     setSaveStatus(null);
+
+    // Auto-update timestamp for resume.updated
+    const now = new Date();
+    const monthNamesPt = ["janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"];
+    const monthNamesEn = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    const day = now.getDate();
+    const year = now.getFullYear();
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+
+    const updatedPt = `Atualizado em: ${day} de ${monthNamesPt[now.getMonth()]} de ${year} às ${hours}:${minutes}`;
+    const updatedEn = `Updated to: ${monthNamesEn[now.getMonth()]} ${day}, ${year} at ${hours}:${minutes}`;
+
+    const newPtbr = { ...ptbrMessages, "resume.updated": updatedPt };
+    const newEn = { ...enMessages, "resume.updated": updatedEn };
+
+    setPtbrMessages(newPtbr);
+    setEnMessages(newEn);
+
     try {
       const response = await fetch("/api/save-content", {
         method: "POST",
@@ -120,8 +139,8 @@ export const DevMode = () => {
           experience: exp,
           skills,
           profileConfig,
-          en: enMessages,
-          ptbr: ptbrMessages,
+          en: newEn,
+          ptbr: newPtbr,
           generatePdfs,
         }),
       });
@@ -131,7 +150,7 @@ export const DevMode = () => {
         setSaveStatus({
           type: "success",
           message: generatePdfs
-            ? "Changes saved and PDF CVs for all 6 profiles generated successfully!"
+            ? "Changes saved and PDF CVs generated successfully!"
             : "Changes saved successfully (fast mode, PDFs not rebuilt)!",
         });
       } else {

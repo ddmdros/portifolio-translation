@@ -3,7 +3,7 @@ import { type EducationType } from "../../content/EducationData";
 import { updateItemAtIndex } from "../../utils/arrayUtils";
 import { useDragAndDrop } from "../../hooks/useDragAndDrop";
 import { DevModeTabPanel } from "./DevModeTabPanel";
-import { TranslatedTextInput } from "./DevModeInputs";
+import { TranslatedTextInput, CustomLinkFields } from "./DevModeInputs";
 
 import { type CertificationType } from "../../types/certificationType";
 
@@ -145,6 +145,14 @@ export const EduTab = ({
                   />
                 </div>
               )}
+
+              <CustomLinkFields
+                item={item}
+                items={edu}
+                setItems={setEdu}
+                updateTrans={updateTrans}
+                getTrans={getTrans}
+              />
 
               <div className="flex items-center gap-3 border-t border-white/5 pt-3">
                 <input

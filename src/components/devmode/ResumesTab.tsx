@@ -68,14 +68,8 @@ export const ResumesTab = ({
     <CategoryFilter
       categories={[
         { id: "all", label: "All" },
-        { id: "ia_agents", label: "Agentes" },
-        { id: "ia_ml", label: "IA" },
-        { id: "back", label: "Back" },
-        { id: "frontend", label: "Front" },
-        { id: "cloud", label: "Cloud" },
-        { id: "game_dev", label: "Game" },
-        { id: "fundamentos", label: "Fund" },
-        { id: "idiomas", label: "Lang" },
+        { id: "idiomas", label: "Languages / Idiomas" },
+        { id: "geral", label: "General" },
       ] as const}
       activeCategory={certFilter}
       setActiveCategory={setCertFilter}

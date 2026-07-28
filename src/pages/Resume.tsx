@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { FormattedMessage, useIntl } from "react-intl";
 import { Download, Code } from "lucide-react";
@@ -7,20 +7,12 @@ import { ExperienceSection } from "../components/resume/ExperienceSection";
 import { EducationSection } from "../components/resume/EducationSection";
 import { ResumeProjectsSection } from "../components/resume/ResumeProjectsSection";
 import { ResumeCertificationsSection } from "../components/resume/ResumeCertificationsSection";
-import { PROFILE_CONFIG } from "../config/profile";
-
-const PROFILE_LABELS: Record<string, { en: string; pt: string }> = {
-  general: { en: "Translation Resume", pt: "Currículo de Tradução" },
-};
 
 const SCROLL_DELAY_MS = 100;
 
 export const Resume = () => {
   const { hash } = useLocation();
   const { locale } = useIntl();
-
-  const availableProfiles = PROFILE_CONFIG.availableCvDownloads || ["general"];
-  const [selectedDownloadProfile, setSelectedDownloadProfile] = useState(availableProfiles[0] || "general");
 
   useEffect(() => {
     if (hash) {
@@ -56,39 +48,23 @@ export const Resume = () => {
           <h1 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
             <FormattedMessage id="resume.title" />
           </h1>
+          <p className="text-xs text-gray-400 font-mono mt-1">
+            <FormattedMessage id="resume.updated" />
+          </p>
         </div>
 
-        {/* Botão de Download com seletor opcional de perfil */}
-        <div className="w-full md:w-auto flex flex-col sm:flex-row items-stretch sm:items-end gap-3 self-center">
-          {availableProfiles.length > 1 && (
-            <div className="flex flex-col text-left">
-              <label className="text-[10px] font-bold text-gray-500 uppercase tracking-wider mb-1">
-                {locale === "pt" ? "Versão do Currículo" : "Resume Version"}
-              </label>
-              <select
-                value={selectedDownloadProfile}
-                onChange={(e) => setSelectedDownloadProfile(e.target.value)}
-                className="bg-white/5 border border-white/10 text-white rounded-xl px-3 py-2.5 text-xs focus:outline-none focus:border-accent cursor-pointer min-w-[150px]"
-              >
-                {availableProfiles.map((pId) => (
-                  <option key={pId} value={pId} className="bg-bg text-text">
-                    {PROFILE_LABELS[pId]?.[locale === "pt" ? "pt" : "en"] || pId}
-                  </option>
-                ))}
-              </select>
-            </div>
-          )}
-
+        {/* Botão de Download do CV em PDF */}
+        <div className="w-full md:w-auto flex items-center justify-end self-center">
           <a
             href={
-              selectedDownloadProfile === "general"
-                ? `/assets/resume_${locale === "pt" ? "pt" : "en"}.pdf`
-                : `/assets/resume_${selectedDownloadProfile}_${locale === "pt" ? "pt" : "en"}.pdf`
+              locale === "pt"
+                ? "/assets/diogo_medeiros_tradutor_ingles_ptbr_cv.pdf"
+                : "/assets/diogo_medeiros_translator_en_ptbr_resume.pdf"
             }
             download={
               locale === "pt"
-                ? `Curriculo_Diogo_Medeiros${selectedDownloadProfile === "general" ? "" : "_" + selectedDownloadProfile}.pdf`
-                : `Resume_Diogo_Medeiros${selectedDownloadProfile === "general" ? "" : "_" + selectedDownloadProfile}.pdf`
+                ? "diogo_medeiros_tradutor_ingles_ptbr_cv.pdf"
+                : "diogo_medeiros_translator_en_ptbr_resume.pdf"
             }
             className="w-full sm:w-auto flex items-center justify-center gap-2 bg-accent border border-accent text-accent-text hover:bg-accent-hover font-bold py-2.5 px-5 rounded-xl transition-all cursor-pointer btn-shimmer select-none"
           >

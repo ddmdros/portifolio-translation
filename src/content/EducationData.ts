@@ -32,6 +32,8 @@ export interface EducationType {
   showInPortfolio?: boolean;
   certificationIds?: string[];
   levels?: EducationLevel[];
+  linkUrl?: string;
+  linkTextKey?: string;
 }
 
 export const EDUCATION_DATA: EducationType[] = [

@@ -37,7 +37,13 @@ export const ResumeProjectsSection = ({ locale }: ResumeProjectsSectionProps) =>
                   <FormattedMessage id={proj.title} />
                 </h3>
                 <p className="text-sm text-gray-400">
-                  <FormattedMessage id={proj.description} />
+                  {proj.category === "inhouse" ? (
+                    <FormattedMessage id={proj.description} />
+                  ) : proj.tags && proj.tags.length > 0 ? (
+                    proj.tags.join(" • ")
+                  ) : (
+                    <FormattedMessage id={proj.description} />
+                  )}
                 </p>
                 <ul className="list-disc list-inside text-gray-400 text-sm space-y-1 pl-1">
                   {proj.descKeys?.map((key) => (

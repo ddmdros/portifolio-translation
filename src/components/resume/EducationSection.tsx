@@ -59,19 +59,59 @@ export const EducationSection = () => {
               <span className="font-mono text-xs text-accent font-semibold">
                 <FormattedMessage id={edu.dateKey} />
               </span>
-              <h3 className="text-xl font-bold text-white">
-                <FormattedMessage id={edu.titleKey} />
-              </h3>
-              <p className="text-sm text-gray-400">
-                <FormattedMessage id={edu.instKey} />
-              </p>
-              {edu.gpaKey && (
-                <p className="text-xs font-medium text-gray-500 font-mono pt-1">
-                  <FormattedMessage id={edu.gpaKey} />
-                </p>
-              )}
+              {(() => {
+                const targetLinkUrl = edu.linkUrl
+                  ? (edu.linkUrl.includes("portifolio-tawny-xi-55.vercel.app")
+                      ? `https://portifolio-tawny-xi-55.vercel.app/${locale === "pt" ? "pt" : "en"}`
+                      : edu.linkUrl)
+                  : undefined;
 
-
+                return (
+                  <>
+                    <h3 className="text-xl font-bold text-white">
+                      {targetLinkUrl ? (
+                        <a
+                          href={targetLinkUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 hover:text-accent transition-colors group cursor-pointer"
+                        >
+                          <span><FormattedMessage id={edu.titleKey} /></span>
+                          <ExternalLink size={16} className="text-accent opacity-80 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all shrink-0" />
+                        </a>
+                      ) : (
+                        <FormattedMessage id={edu.titleKey} />
+                      )}
+                    </h3>
+                    <p className="text-sm text-gray-400">
+                      <FormattedMessage id={edu.instKey} />
+                    </p>
+                    {edu.gpaKey && (
+                      <p className="text-xs font-medium text-gray-500 font-mono pt-1">
+                        <FormattedMessage id={edu.gpaKey} />
+                      </p>
+                    )}
+                    {targetLinkUrl && (
+                      <div className="pt-2">
+                        <a
+                          href={targetLinkUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 text-xs font-semibold text-accent hover:underline bg-accent/10 px-3 py-1.5 rounded-lg border border-accent/20 transition-all hover:bg-accent/20"
+                        >
+                          <span>
+                            <FormattedMessage
+                              id={edu.linkTextKey || "resume.link.se.portfolio"}
+                              defaultMessage="Software Engineering Portfolio"
+                            />
+                          </span>
+                          <ExternalLink size={12} />
+                        </a>
+                      </div>
+                    )}
+                  </>
+                );
+              })()}
             </div>
             
               {/* Collapsible Syllabus Dropdown */}

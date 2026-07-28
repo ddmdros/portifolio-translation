@@ -21,15 +21,15 @@ export const ProfileDownloadPnl = ({
       </div>
       <div className="flex gap-2">
         <a
-          href={`/assets/resume_${activeProfile}_en.pdf`}
-          download={`Resume_Diogo_Medeiros_${activeProfile}.pdf`}
+          href="/assets/diogo_medeiros_translator_en_ptbr_resume.pdf"
+          download="diogo_medeiros_translator_en_ptbr_resume.pdf"
           className="flex items-center gap-2 bg-white/5 border border-white/10 text-gray-300 font-semibold py-2 px-4 rounded-xl hover:bg-white/10 hover:text-white transition-all text-xs select-none cursor-pointer"
         >
           <Download size={14} /> Download EN
         </a>
         <a
-          href={`/assets/resume_${activeProfile}_pt.pdf`}
-          download={`Curriculo_Diogo_Medeiros_${activeProfile}.pdf`}
+          href="/assets/diogo_medeiros_tradutor_ingles_ptbr_cv.pdf"
+          download="diogo_medeiros_tradutor_ingles_ptbr_cv.pdf"
           className="flex items-center gap-2 bg-white/5 border border-white/10 text-gray-300 font-semibold py-2 px-4 rounded-xl hover:bg-white/10 hover:text-white transition-all text-xs select-none cursor-pointer"
         >
           <Download size={14} /> Download PT

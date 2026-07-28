@@ -1,4 +1,4 @@
-export type CertificationCategory = "ia_ml" | "ia_agents" | "back" | "frontend" | "cloud" | "idiomas" | "game_dev" | "fundamentos";
+export type CertificationCategory = "idiomas" | "geral";
 
 export interface CertificationType {
   id: string;

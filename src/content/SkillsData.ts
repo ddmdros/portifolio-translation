@@ -65,37 +65,5 @@ export const SKILLS_DATA: SkillType[] = [
     "showInResume": [
       "general"
     ]
-  },
-  {
-    "id": "soft-msoffice",
-    "categoryKey": "about.stacks.other.software",
-    "name": "MS Office",
-    "showInResume": [
-      "general"
-    ]
-  },
-  {
-    "id": "soft-ps",
-    "categoryKey": "about.stacks.other.software",
-    "name": "Adobe Photoshop",
-    "showInResume": [
-      "general"
-    ]
-  },
-  {
-    "id": "soft-ai",
-    "categoryKey": "about.stacks.other.software",
-    "name": "Adobe Illustrator",
-    "showInResume": [
-      "general"
-    ]
-  },
-  {
-    "id": "soft-id",
-    "categoryKey": "about.stacks.other.software",
-    "name": "Adobe InDesign",
-    "showInResume": [
-      "general"
-    ]
   }
 ];
