@@ -162,9 +162,8 @@ function getHtmlTemplate(lang, messages, profile) {
 
     return `
       <li style="margin-bottom: 5px;">
-        <div style="display: flex; justify-content: space-between; align-items: baseline;">
-          <span>&bull; <strong>${titleHtml}</strong> — ${getMsg(edu.instKey)}</span>
-          <span class="edu-date">${getMsg(edu.dateKey)}</span>
+        <div>
+          <span>&bull; <strong>${titleHtml}</strong> — ${getMsg(edu.instKey)} <span class="edu-date">(${getMsg(edu.dateKey)})</span></span>
         </div>
         ${edu.gpaKey ? `
           <ul style="padding-left: 12px; list-style-type: circle; margin-top: 1px;">
@@ -193,9 +192,9 @@ function getHtmlTemplate(lang, messages, profile) {
 
   const expHtml = resumeExp.map(exp => `
     <div class="exp-item">
-      <div class="exp-header">
+      <div class="exp-header" style="display: flex; align-items: baseline; gap: 8px;">
         <span>${getMsg(exp.companyKey)}</span>
-        <span class="exp-date">${getMsg(exp.dateKey)}</span>
+        <span class="exp-date">(${getMsg(exp.dateKey)})</span>
       </div>
       <p class="exp-title">${getMsg(exp.titleKey)}</p>
       <ul style="padding-left: 12px; color: #334155;">
