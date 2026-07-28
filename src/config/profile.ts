@@ -14,6 +14,9 @@ export const PROFILE_CONFIG = {
   
   // URL completa do perfil do GitHub
   githubUrl: "https://github.com/ddmdros",
+
+  // URL completa do perfil do MobyGames
+  mobyGamesUrl: "https://www.mobygames.com/person/1420566/diogo-de-souza-medeiros/",
   
   // Nome de usuário do GitHub (ex: ddmdros)
   githubUser: "ddmdros",
@@ -41,3 +44,5 @@ export const PROFILE_CONFIG = {
   cvCertsMoreTextKey: "More Certifications",
   cvCertsMoreLinkKey: "https://diogomedeiros.carrd.co"
 };
+
+export type ProfileConfigType = typeof PROFILE_CONFIG;

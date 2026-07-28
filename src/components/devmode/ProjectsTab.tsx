@@ -272,6 +272,25 @@ export const ProjectsTab = ({
                   className="w-full bg-black/40 border border-white/10 rounded-lg px-3 py-2 text-sm text-white focus:border-accent focus:outline-none"
                 />
               </div>
+
+              <div>
+                <label className="block text-xs font-semibold text-gray-400 mb-1">
+                  Credit MobyGames / Proof URL (Optional)
+                </label>
+                <input
+                  type="text"
+                  value={item.mobyGamesUrl || item.creditUrl || ""}
+                  onChange={(e) => {
+                    setProjects(
+                      updateItemAtIndex(projects, pIdx, {
+                        mobyGamesUrl: e.target.value || undefined,
+                      })
+                    );
+                  }}
+                  placeholder="e.g. https://www.mobygames.com/person/1420566/diogo-de-souza-medeiros/"
+                  className="w-full bg-black/40 border border-white/10 rounded-lg px-3 py-2 text-sm text-white focus:border-accent focus:outline-none"
+                />
+              </div>
             </div>
 
             <div className="bg-white/5 border border-white/10 p-4 rounded-xl space-y-2">

@@ -17,6 +17,8 @@ export interface ProjectType {
   tags: string[];
   imageUrl: string;
   creditImageUrl?: string;
+  mobyGamesUrl?: string;
+  creditUrl?: string;
   steamUrl?: string;
   docsUrl?: string;
   githubUrl?: string;

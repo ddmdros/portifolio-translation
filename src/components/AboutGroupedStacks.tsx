@@ -2,10 +2,7 @@ import { FormattedMessage } from "react-intl";
 import { SectionDiv } from "./SectionDiv";
 import {
   Languages,
-  Wrench,
-  FileCode2,
   Globe,
-  Sparkles,
   BookOpen,
 } from "lucide-react";
 
@@ -16,15 +13,6 @@ const translationStackGroups = [
       { name: "English (C2)", icon: <Globe size={22} className="text-accent" /> },
       { name: "Portuguese (Native)", icon: <Languages size={22} className="text-accent" /> },
       { name: "French (Intermediate)", icon: <BookOpen size={22} className="text-accent" /> },
-    ],
-  },
-  {
-    category: "about.stacks.cat.tools",
-    items: [
-      { name: "memoQ", icon: <Wrench size={22} className="text-accent" /> },
-      { name: "Phrase / Memsource", icon: <Sparkles size={22} className="text-accent" /> },
-      { name: "SDL Trados", icon: <FileCode2 size={22} className="text-accent" /> },
-      { name: "Wordfast", icon: <Wrench size={22} className="text-accent" /> },
     ],
   },
 ];

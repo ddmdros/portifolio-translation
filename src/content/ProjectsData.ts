@@ -8,7 +8,7 @@ export const PROJECTS_DATA: ProjectType[] = [
     "description": "project.desc.destiny",
     "genre": "AAA Sci-Fi FPS",
     "role": "In-house Translator & Editor",
-    "wordCount": "400k+ words",
+    "wordCount": "300k+ words",
     "year": "2023",
     "tags": [
       "Free to Play",
@@ -25,7 +25,8 @@ export const PROJECTS_DATA: ProjectType[] = [
     "creditImageUrl": "/assets/credits/destiny2_final_shape.png",
     "steamUrl": "https://store.steampowered.com/app/1085660/Destiny_2/",
     "projectUrl": "https://store.steampowered.com/app/1085660/Destiny_2/",
-    "developer": "Bungie"
+    "developer": "Bungie",
+    "mobyGamesUrl": "https://www.mobygames.com/game/226083/destiny-2-the-final-shape/credits/windows/?autoplatform=true"
   },
   {
     "id": "supercell-games",
@@ -73,7 +74,8 @@ export const PROJECTS_DATA: ProjectType[] = [
     "creditImageUrl": "assets/credits/skygard_arena.jpg",
     "developer": " Gemelli Games",
     "steamUrl": "https://store.steampowered.com/app/2148970/Skygard_Arena/",
-    "projectUrl": "https://store.steampowered.com/app/2148970/Skygard_Arena/"
+    "projectUrl": "https://store.steampowered.com/app/2148970/Skygard_Arena/",
+    "mobyGamesUrl": "https://www.mobygames.com/game/248197/skygard-arena/credits/windows/?autoplatform=true"
   },
   {
     "id": "p4_0339",
@@ -100,7 +102,8 @@ export const PROJECTS_DATA: ProjectType[] = [
     "creditImageUrl": "/assets/credits/mermaid_mask.png",
     "steamUrl": "https://store.steampowered.com/app/1696770/The_Mermaid_Mask/",
     "projectUrl": "https://store.steampowered.com/app/1696770/The_Mermaid_Mask/",
-    "developer": "SFB Games"
+    "developer": "SFB Games",
+    "mobyGamesUrl": "https://www.mobygames.com/game/264294/the-mermaid-mask/credits/macintosh/?autoplatform=true"
   },
   {
     "id": "p5_5094",
@@ -129,7 +132,8 @@ export const PROJECTS_DATA: ProjectType[] = [
     "developer": "Shape Shop",
     "creditImageUrl": "/assets/credits/mars_first_logistics.jpg",
     "steamUrl": "https://store.steampowered.com/app/1532200/Mars_First_Logistics/",
-    "projectUrl": "https://store.steampowered.com/app/1532200/Mars_First_Logistics/"
+    "projectUrl": "https://store.steampowered.com/app/1532200/Mars_First_Logistics/",
+    "mobyGamesUrl": "https://www.mobygames.com/game/244305/mars-first-logistics/credits/windows/?autoplatform=true"
   },
   {
     "id": "p6_1777",
@@ -210,7 +214,8 @@ export const PROJECTS_DATA: ProjectType[] = [
     "developer": "Keplerians",
     "steamUrl": "https://store.steampowered.com/app/1460220/Evil_Nun_The_Broken_Mask/",
     "projectUrl": "https://store.steampowered.com/app/1460220/Evil_Nun_The_Broken_Mask/",
-    "creditImageUrl": "/assets/credits/broken_mask.png"
+    "creditImageUrl": "/assets/credits/broken_mask.png",
+    "mobyGamesUrl": "https://www.mobygames.com/game/194269/evil-nun-the-broken-mask/credits/windows/?autoplatform=true"
   },
   {
     "id": "p9_4124",
@@ -238,6 +243,7 @@ export const PROJECTS_DATA: ProjectType[] = [
     "steamUrl": "https://store.steampowered.com/app/1793330/Brew/",
     "projectUrl": "https://store.steampowered.com/app/1793330/Brew/",
     "developer": " Snow Leaf Studios",
-    "creditImageUrl": "/assets/credits/brew.png"
+    "creditImageUrl": "/assets/credits/brew.png",
+    "mobyGamesUrl": "https://www.mobygames.com/game/250257/brew/credits/windows/?autoplatform=true"
   }
 ];

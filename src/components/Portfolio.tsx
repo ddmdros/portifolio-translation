@@ -1,7 +1,8 @@
 import { FormattedMessage } from "react-intl";
 import MailButton from "./MailButton";
 import { IconButton } from "./IconButton";
-import { FaGithub, FaLinkedinIn } from "react-icons/fa6";
+import { FaLinkedinIn } from "react-icons/fa6";
+import { MobyGamesIcon } from "./icons/MobyGamesIcon";
 import { PROFILE_CONFIG } from "../config/profile";
 
 const Portfolio = () => {
@@ -47,8 +48,8 @@ const Portfolio = () => {
         <div className="flex items-center gap-3 pt-2">
           <MailButton />
           <IconButton
-            icon={<FaGithub size={20} />}
-            url={PROFILE_CONFIG.githubUrl}
+            icon={<MobyGamesIcon size={20} />}
+            url={PROFILE_CONFIG.mobyGamesUrl}
           />
           <IconButton
             icon={<FaLinkedinIn size={20} />}

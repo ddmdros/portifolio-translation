@@ -1,21 +1,4 @@
-interface ProfileConfigType {
-  name: string;
-  emailContact: string;
-  emailResume: string;
-  githubUrl: string;
-  githubUser: string;
-  linkedinUrl: string;
-  linkedinUser: string;
-  portfolioUrl: string;
-  googleSkillsProfile: string;
-  availableCvDownloads: string[];
-  cvProjectsMoreUrl: string;
-  cvProjectsMoreTextKey: string;
-  cvProjectsMoreLinkKey: string;
-  cvCertsMoreUrl: string;
-  cvCertsMoreTextKey: string;
-  cvCertsMoreLinkKey: string;
-}
+import { type ProfileConfigType } from "../../config/profile";
 
 interface ProfileTabProps {
   profileConfig: ProfileConfigType;
@@ -27,7 +10,7 @@ export const ProfileTab = ({
   setProfileConfig,
 }: ProfileTabProps) => {
   const handleChange = (key: keyof ProfileConfigType, value: string) => {
-    setProfileConfig((prev) => ({ ...prev, [key]: value }));
+    setProfileConfig((prev: ProfileConfigType) => ({ ...prev, [key]: value }));
   };
 
   return (
@@ -117,6 +100,18 @@ export const ProfileTab = ({
           </h3>
 
           <div className="grid md:grid-cols-2 gap-4">
+            <div className="space-y-2">
+              <label className="block text-xs font-semibold text-gray-400">
+                MobyGames Full URL
+              </label>
+              <input
+                type="text"
+                value={profileConfig.mobyGamesUrl || ""}
+                onChange={(e) => handleChange("mobyGamesUrl", e.target.value)}
+                className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-accent/40 transition-all"
+              />
+            </div>
+
             <div className="space-y-2">
               <label className="block text-xs font-semibold text-gray-400">
                 GitHub Full URL

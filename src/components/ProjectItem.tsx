@@ -1,8 +1,10 @@
 import { useState } from "react";
+import { createPortal } from "react-dom";
 import { KeywordTag } from "./KeywordTag";
 import { type ProjectCategory } from "../types/projectType";
 import { FormattedMessage } from "react-intl";
 import { ExternalLink, Award, FileText, Calendar, Layers, Building2, X } from "lucide-react";
+import { MobyGamesIcon } from "./icons/MobyGamesIcon";
 
 interface ProjectItemProps {
   category: ProjectCategory | ProjectCategory[];
@@ -16,6 +18,8 @@ interface ProjectItemProps {
   tags: string[];
   imageUrl: string;
   creditImageUrl?: string;
+  mobyGamesUrl?: string;
+  creditUrl?: string;
   steamUrl?: string;
   projectUrl?: string;
   isFeatured?: boolean;
@@ -34,6 +38,8 @@ const ProjectItem = ({
   tags,
   imageUrl,
   creditImageUrl,
+  mobyGamesUrl,
+  creditUrl,
   steamUrl,
   projectUrl,
   isFeatured = false,
@@ -167,7 +173,9 @@ const ProjectItem = ({
                   className="flex items-center gap-1.5 text-accent hover:underline cursor-pointer"
                 >
                   <Award size={14} />
-                  <span>View Credit Proof</span>
+                  <span>
+                    <FormattedMessage id="projects.credit.proof" defaultMessage="View Credit Proof" />
+                  </span>
                 </button>
               )}
 
@@ -187,32 +195,80 @@ const ProjectItem = ({
         </div>
       </div>
 
-      {/* Credit Proof Modal */}
-      {showCreditModal && creditImageUrl && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-md p-4 animate-fade-in">
-          <div className="relative max-w-3xl w-full bg-card-bg border border-white/20 rounded-2xl overflow-hidden p-6 space-y-4 shadow-2xl">
-            <div className="flex items-center justify-between border-b border-white/10 pb-3">
-              <h4 className="text-lg font-bold text-white flex items-center gap-2">
-                <Award size={18} className="text-accent" />
-                Credit Proof / Screenshot
-              </h4>
-              <button
-                onClick={() => setShowCreditModal(false)}
-                className="text-gray-400 hover:text-white p-1 rounded-lg hover:bg-white/10 transition-colors"
-              >
-                <X size={20} />
-              </button>
+      {/* Credit Proof Modal rendered via Portal */}
+      {showCreditModal && creditImageUrl && (() => {
+        const targetCreditUrl = mobyGamesUrl || creditUrl;
+        return createPortal(
+          <div 
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-md p-4 animate-fade-in"
+            onClick={() => setShowCreditModal(false)}
+          >
+            <div 
+              className="relative max-w-3xl w-full bg-card-bg border border-white/20 rounded-2xl overflow-hidden p-4 md:p-6 space-y-4 shadow-2xl max-h-[90vh] flex flex-col"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="flex items-center justify-between border-b border-white/10 pb-3 shrink-0 flex-wrap gap-2">
+                <h4 className="text-base md:text-lg font-bold text-white flex items-center gap-2">
+                  <Award size={18} className="text-accent shrink-0" />
+                  <FormattedMessage id="projects.credit.modal.title" defaultMessage="Credit Proof / Screenshot" />
+                </h4>
+
+                <div className="flex items-center gap-3">
+                  {targetCreditUrl && (
+                    <a
+                      href={targetCreditUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1.5 text-xs text-accent hover:underline bg-accent/10 px-3 py-1.5 rounded-lg border border-accent/20 transition-all hover:bg-accent/20"
+                    >
+                      <MobyGamesIcon size={14} />
+                      <FormattedMessage id="projects.credit.view.mobygames" defaultMessage="Ver no MobyGames" />
+                      <ExternalLink size={12} />
+                    </a>
+                  )}
+                  <button
+                    onClick={() => setShowCreditModal(false)}
+                    className="text-gray-400 hover:text-white p-1 rounded-lg hover:bg-white/10 transition-colors cursor-pointer"
+                    aria-label="Close"
+                  >
+                    <X size={20} />
+                  </button>
+                </div>
+              </div>
+
+              <div className="overflow-auto rounded-xl border border-white/10 grow flex items-center justify-center bg-black/40 p-2">
+                {targetCreditUrl ? (
+                  <a
+                    href={targetCreditUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block relative group max-w-full cursor-pointer"
+                    title="Ver no MobyGames"
+                  >
+                    <img
+                      src={creditImageUrl}
+                      alt="Credit Proof"
+                      className="max-w-full max-h-[75vh] w-auto h-auto object-contain transition-opacity group-hover:opacity-90 rounded-lg"
+                    />
+                    <div className="absolute bottom-3 right-3 bg-black/85 backdrop-blur-md text-accent border border-accent/30 text-xs font-semibold px-3 py-1.5 rounded-xl flex items-center gap-1.5 shadow-lg group-hover:scale-105 transition-all">
+                      <MobyGamesIcon size={14} />
+                      <FormattedMessage id="projects.credit.view.mobygames" defaultMessage="Ver no MobyGames" />
+                      <ExternalLink size={12} />
+                    </div>
+                  </a>
+                ) : (
+                  <img
+                    src={creditImageUrl}
+                    alt="Credit Proof"
+                    className="max-w-full max-h-[75vh] w-auto h-auto object-contain rounded-lg"
+                  />
+                )}
+              </div>
             </div>
-            <div className="max-h-[70vh] overflow-auto rounded-xl border border-white/10">
-              <img
-                src={creditImageUrl}
-                alt="Credit Proof"
-                className="w-full h-auto object-contain"
-              />
-            </div>
-          </div>
-        </div>
-      )}
+          </div>,
+          document.body
+        );
+      })()}
     </div>
   );
 };
