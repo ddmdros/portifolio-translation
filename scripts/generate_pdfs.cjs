@@ -441,7 +441,7 @@ function getHtmlTemplate(lang, messages, profile) {
     <h1 class="name">${PROFILE_CONFIG.name}</h1>
     <h2 class="title">${profileHeader}</h2>
     <p class="contact-bar">
-      Lages, Brazil &bull; <a href="mailto:${PROFILE_CONFIG.emailResume}">${PROFILE_CONFIG.emailResume}</a> &bull; <a href="${linkedinUrl}" target="_blank">LinkedIn</a> &bull; <a href="${mobyGamesUrl}" target="_blank">MobyGames</a> &bull; <a href="${portfolioUrl}" target="_blank">Portfolio</a>
+      ${lang === 'pt' ? 'Lages, Brasil' : 'Lages, Brazil'} &bull; <a href="mailto:${PROFILE_CONFIG.emailResume}">${PROFILE_CONFIG.emailResume}</a> &bull; <a href="${linkedinUrl}" target="_blank">LinkedIn</a> &bull; <a href="${mobyGamesUrl}" target="_blank">MobyGames</a> &bull; <a href="${portfolioUrl}" target="_blank">Portfolio</a>
     </p>
   </div>
 

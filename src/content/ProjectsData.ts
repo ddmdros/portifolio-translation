@@ -35,7 +35,7 @@ export const PROJECTS_DATA: ProjectType[] = [
     "description": "project.desc.supercell",
     "genre": "Mobile Strategy & Live Service",
     "role": "In-house Translator & Editor (6+ Games)",
-    "wordCount": "400k+ words",
+    "wordCount": "300k+ words",
     "year": "2024",
     "tags": [
       "EN > PTBR",
