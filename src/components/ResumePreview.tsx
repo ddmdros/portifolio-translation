@@ -132,7 +132,7 @@ const ResumePreview = () => {
                   />
                 </p>
                 <p className="text-xs text-gray-400">
-                  Destiny 2, Skygard Arena & mais
+                  <FormattedMessage id="home.resume.preview.stats.credited.sub" />
                 </p>
               </div>
 
@@ -144,7 +144,7 @@ const ResumePreview = () => {
                   />
                 </p>
                 <p className="text-xs text-gray-400">
-                  Jogos AAA, mobile & quadrinhos
+                  <FormattedMessage id="home.resume.preview.stats.words.sub" />
                 </p>
               </div>
             </div>
