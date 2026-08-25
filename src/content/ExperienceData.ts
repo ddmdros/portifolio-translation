@@ -19,7 +19,8 @@ export const EXPERIENCE_DATA: ExperienceType[] = [
     "descKeys": [
       "resume.exp.keywords.desc1",
       "resume.exp.keywords.desc2",
-      "resume.exp.keywords.desc3"
+      "resume.exp.keywords.desc3",
+      "resume.exp.keywords.desc4"
     ],
     "showInResume": [
       "general"
