@@ -187,7 +187,11 @@ const ProjectItem = ({
                   className="flex items-center gap-1.5 text-gray-400 hover:text-white transition-colors"
                 >
                   <ExternalLink size={14} />
-                  <FormattedMessage id="projects.external.link" defaultMessage="View Game on Steam" />
+                  {steamUrl ? (
+                    <FormattedMessage id="projects.external.link" defaultMessage="View Game on Steam" />
+                  ) : (
+                    <FormattedMessage id="projects.external.link.official" defaultMessage="View Official Page" />
+                  )}
                 </a>
               )}
             </div>

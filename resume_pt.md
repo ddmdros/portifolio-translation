@@ -20,6 +20,7 @@ Oferecer localizações imersivas e de alta qualidade em Português Brasileiro p
 **Tradutor e Localizador de Jogos Independente** (Out de 2020 - Presente)  
 *Autônomo (Hive International)*  
 * Tradução de mais de 1 milhão de palavras em jogos (*Destiny 2*, *jogos da Supercell*, *Skygard Arena*) e quadrinhos.
+* Creditado em *Grand Theft Auto VI* (Rockstar Games, 2026), na seção Special Thanks.
 * Portfólio disponível em [diogomedeiros.carrd.co](https://diogomedeiros.carrd.co).
 
 **Tradutor de Quadrinhos** (2022 - Presente)  

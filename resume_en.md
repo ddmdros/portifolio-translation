@@ -20,6 +20,7 @@ Deliver high-quality, immersive Brazilian Portuguese localizations for games and
 **Independent Linguist & Game Localizer** (Oct 2020 - Present)  
 *Self-Employed (Hive International)*  
 * Localized over 1 million words across games (*Destiny 2*, *Supercell titles*, *Skygard Arena*) and comics.
+* Credited in *Grand Theft Auto VI* (Rockstar Games, 2026), under Special Thanks.
 * Portfolio available at [diogomedeiros.carrd.co](https://diogomedeiros.carrd.co).
 
 **Comic Translator** (2022 - Present)  

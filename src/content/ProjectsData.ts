@@ -2,6 +2,30 @@ import { type ProjectType } from "../types/projectType";
 
 export const PROJECTS_DATA: ProjectType[] = [
   {
+    "id": "gta-vi",
+    "title": "project.title.gta6",
+    "category": "freelance",
+    "description": "project.desc.gta6",
+    "genre": "AAA Open-World Action-Adventure",
+    "role": "Credited (Special Thanks)",
+    "wordCount": "",
+    "year": "2026",
+    "tags": [
+      "Open World",
+      "Action",
+      "Adventure",
+      "Crime"
+    ],
+    "imageUrl": "/assets/projects/gta_vi_cover.jpg",
+    "isFeatured": true,
+    "showInResume": [
+      "general"
+    ],
+    "creditImageUrl": "/assets/credits/gta_vi.png",
+    "projectUrl": "https://www.rockstargames.com/VI",
+    "developer": "Rockstar Games"
+  },
+  {
     "id": "destiny-2",
     "title": "project.title.destiny",
     "category": "inhouse",

@@ -283,7 +283,7 @@ function getHtmlTemplate(lang, messages, profile) {
       line-height: 1.4;
       color: #2c3e50;
       margin: 0;
-      padding: 12mm 15mm 12mm 15mm;
+      padding: 10mm 15mm 10mm 15mm;
       -webkit-print-color-adjust: exact;
       print-color-adjust: exact;
     }
@@ -369,7 +369,7 @@ function getHtmlTemplate(lang, messages, profile) {
       min-width: 0;
     }
     .project-item, .exp-item {
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
     .project-name, .exp-company {
       font-weight: 700;
