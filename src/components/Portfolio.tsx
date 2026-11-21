@@ -12,7 +12,7 @@ const Portfolio = () => {
 
       <div className="shrink-0 rounded-full">
         <img
-          src={`${PROFILE_CONFIG.githubUrl}.png`}
+          src="/diogo_medeiros_profile.jpg"
           alt={PROFILE_CONFIG.name}
           className="rounded-full w-40 h-40 object-cover border-4 border-card-bg"
         />
